@@ -11,7 +11,7 @@ export const runtime="edge";
 
 const app=new Hono().basePath("/api");
 app.use('*', cors({
-    origin: 'https://finance-ral14tnhc-parth23ps-projects.vercel.app', // Replace with your frontend URL
+    origin: '*', // Replace with your frontend URL
     allowMethods: ['GET', 'POST', 'PATCH', 'DELETE'],
     allowHeaders: ['Content-Type', 'Authorization']
   }));
