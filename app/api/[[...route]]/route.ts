@@ -4,10 +4,17 @@ import  accounts  from "./accounts";
 import  categories  from "./categories";
 import transactions from "./transactions";
 import summary from "./summary";
+import { cors } from 'hono/cors';
+
 export const runtime="edge";
 
 
 const app=new Hono().basePath("/api");
+app.use('*', cors({
+    origin: 'https://finance-ral14tnhc-parth23ps-projects.vercel.app', // Replace with your frontend URL
+    allowMethods: ['GET', 'POST', 'PATCH', 'DELETE'],
+    allowHeaders: ['Content-Type', 'Authorization']
+  }));
 // app.onError((err,c)=>{
 //     if(err instanceof HTTPException){
 //         return err.getResponse();
